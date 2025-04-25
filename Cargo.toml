@@ -1,0 +1,10 @@
+[workspace]
+resolver = "2"
+
+members = [
+    # Crate which contains the 'stm' executable
+    "stm",
+
+    # Crate which includes the core of functionality of 'stm'
+    "stm-core",
+]
