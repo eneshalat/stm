@@ -39,12 +39,12 @@ fn main() {
                 println!("verbose: {}", verbose);
             }
 
-            let destination = match system_root {
-                Some(sr) => sr,
-                None => &config::get_system_root_config(),
+            let destination: PathBuf = match system_root {
+                Some(sr) => sr.clone(),
+                None => config::get_system_root_config(),
             };
 
-            dpkg::unpack_package(file, destination, verbose);
+            dpkg::unpack_package(file, &destination, verbose);
         }
 
         _ => {}
